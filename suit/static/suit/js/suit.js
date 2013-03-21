@@ -129,6 +129,14 @@ $.fn.suit_tabs = function () {
     });
 
     detectLocationHash();
+    $tabs.find('.active a').trigger('click')
+    $tabs.find('a').each(function() {
+        var $link = $(this);
+        if ($('.' + tab_prefix + '-' + $link.attr('href').replace('#', '')).find('.error').length!=0){
+            $link.addClass('.text-error')
+            $link.trigger('click')
+        };
+    });
 };
 
 
